@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import Map from './components/Map'
-import Header from './components/Header'
+import Map from './components/NonRedux/Map'
+import Header from './components/NonRedux/Header'
 
 function App() {
 
