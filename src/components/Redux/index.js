@@ -1,6 +1,6 @@
 import React from "react"
 
-import Header from "./components/Redux/Header"
+import Header from "./Header"
 
 function Nasa(){
   return(
