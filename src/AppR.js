@@ -9,7 +9,6 @@ function AppR(){
   return(
     <Provider store={store}>
       <Nasa/>
-      <h1>This is how i win</h1>
     </Provider>
   )
 }
