@@ -1,18 +1,18 @@
 import { FETCHEVENT } from "../actions/type"
 
 const initialState = {
-  data : {}
+  event : {}
 }
 
 function dataReducer(state=initialState, action) {
-  switch(action.type){
+  switch(action.type){  
     case FETCHEVENT:
       return {
         ...state,
-        data : action.payload
+        event : action.payload
       }
-      default:
-        return state
+    default:
+      return state
   }
 }
 

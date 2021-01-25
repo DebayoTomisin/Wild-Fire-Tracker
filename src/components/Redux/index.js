@@ -1,11 +1,28 @@
-import React from "react"
+import React, {  useState, useEffect } from "react"
+import GoogleMapReact from "google-map-react"
 
-import Header from "./Header"
+import Marker from './Marker'
+import Info from "./Info"
 
-function Nasa(){
+
+import fetchEvents from "./actions/eventAction"
+import { connect } from "react-redux"
+
+function Nasa(props){
+
+  const [loading, setLoading ] = useState(true)
+
+  useEffect(() => {
+    setLoading(false)
+    props.fetchEvents()
+  })
   return(
-    <Header/>
+    <h1>This is it people</h1>
   )
 }
 
-export default Nasa
+const mapStatetoProps = state => ({
+  events : state.events.events
+})
+
+export default connect(mapStatetoProps, { fetchEvents})(Nasa)
