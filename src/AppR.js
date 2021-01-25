@@ -10,8 +10,6 @@ function AppR(){
   return(
     <Provider store={store}>
       <Header/>
-      <br/>
-      <br/>
       <Nasa/>
     </Provider>
   )
