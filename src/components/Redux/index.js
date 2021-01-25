@@ -14,15 +14,25 @@ function Nasa(props){
 
   useEffect(() => {
     setLoading(false)
-    props.fetchEvents()
-  })
+    const marker =  props.events.map(event => {
+      if(event.categories[0].id === 8){
+        return(
+          <Marker lat= {event.geometries[0].coordinates[1]} lng={event.geometries[1].coordinates[0]}  onClick={() => props.events.}/>
+        )
+      }
+    })
+    console.log(props.events)
+  }, [])
+
+  
+  
   return(
     <h1>This is it people</h1>
   )
 }
 
 const mapStatetoProps = state => ({
-  events : state.events.events
+  events: state.data.event
 })
 
 export default connect(mapStatetoProps, { fetchEvents})(Nasa)
