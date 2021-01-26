@@ -11,23 +11,26 @@ import { connect } from "react-redux"
 function Nasa(props){
 
   const [loading, setLoading ] = useState(true)
+  const [locationInfo, setLocationInfo] = useState(null)
 
   useEffect(() => {
     setLoading(false)
-    const marker =  props.events.map(event => {
-      if(event.categories[0].id === 8){
-        return(
-          <Marker lat= {event.geometries[0].coordinates[1]} lng={event.geometries[1].coordinates[0]}  onClick={() => props.events.}/>
-        )
-      }
-    })
-    console.log(props.events)
+    props.fetchEvents()
   }, [])
 
-  
-  
+  const marker = props.events.map(ev => {
+    if(ev.categories[0].id === 8){
+        return <Marker 
+            lat={ev.geometries[0].coordinates[1]} 
+            lng={ev.geometries[0].coordinates[0]}
+            onClick= {() => setLocationInfo({id:ev.id, title:ev.title})}
+        />
+    }
+    return null
+  })
+
   return(
-    <h1>This is it people</h1>
+    <h1>{marker}</h1>
   )
 }
 

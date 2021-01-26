@@ -14,9 +14,7 @@ export const fetchEvent = () => dispatch => { //promises method
 
 const FetchEvents = async dispatch => {
   const response = await fetch(url)
-  console.log(response)
   const data = await response.json()
-  console.log(data)
   dispatch({
     action: FETCHEVENT,
     payload: data
