@@ -11,11 +11,14 @@ import { connect } from "react-redux"
 
 function Nasa(props) {
 
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
+    setLoading(true)
     props.fetchEvent()
-  }, [])
+  })
   
-  console.log(props.fetchEvent())
+  console.log(props.events)
   return(
     <h1>This is the main app component</h1>
   )

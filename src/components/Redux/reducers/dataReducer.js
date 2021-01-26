@@ -1,7 +1,7 @@
 import { FETCHEVENT } from "../actions/type"
 
 const initialState = {
-  event : {}
+  events : null
 }
 
 function dataReducer(state=initialState, action) {
@@ -9,7 +9,7 @@ function dataReducer(state=initialState, action) {
     case FETCHEVENT:
       return {
         ...state,
-        event : action.payload
+        events : action.payload
       }
     default:
       return state
