@@ -17,6 +17,12 @@ function Nasa(props) {
     setLoading(true)
     props.fetchEvent()
   })
+
+  if(loading && props.events === null){
+    return(
+      <h1 className="loader">Loading...</h1>
+    )
+  }
   
   console.log(props.events)
   return(
