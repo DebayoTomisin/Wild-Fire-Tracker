@@ -5,37 +5,24 @@ import Marker from './Marker'
 import Info from "./Info"
 
 
-import fetchEvents from "./actions/eventAction"
+import {fetchEvents, fetchEvent} from "./actions/eventAction"
 import { connect } from "react-redux"
 
-function Nasa(props){
 
-  const [loading, setLoading ] = useState(true)
-  const [locationInfo, setLocationInfo] = useState(null)
+function Nasa(props) {
 
   useEffect(() => {
-    setLoading(false)
-    props.fetchEvents()
+    props.fetchEvent()
   }, [])
-
-  const marker = props.events.map(ev => {
-    if(ev.categories[0].id === 8){
-        return <Marker 
-            lat={ev.geometries[0].coordinates[1]} 
-            lng={ev.geometries[0].coordinates[0]}
-            onClick= {() => setLocationInfo({id:ev.id, title:ev.title})}
-        />
-    }
-    return null
-  })
-
+  
+  console.log(props.fetchEvent())
   return(
-    <h1>{marker}</h1>
+    <h1>This is the main app component</h1>
   )
 }
 
-const mapStatetoProps = state => ({
-  events: state.data.event
+const mapStateToProps = state => ({
+  events: state.data.events,
 })
 
-export default connect(mapStatetoProps, { fetchEvents})(Nasa)
+export default connect(mapStateToProps, { fetchEvent })(Nasa)

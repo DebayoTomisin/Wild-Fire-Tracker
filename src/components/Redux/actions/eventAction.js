@@ -2,7 +2,7 @@ import { FETCHEVENT } from "./type"
 
 const url = "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events"
 
-export const fetchEvent = () => dispatch => { //promises method
+const fetchEvent = () => dispatch => { //promises method
   fetch(url)
   .then(res => res.json())
   .then(data => 
@@ -21,4 +21,4 @@ const FetchEvents = async dispatch => {
   })
 }
 
-export default FetchEvents
+export {fetchEvent, FetchEvents}
