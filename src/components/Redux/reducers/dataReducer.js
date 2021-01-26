@@ -1,7 +1,7 @@
 import { FETCHEVENT } from "../actions/type"
 
 const initialState = {
-  events : null
+  events : []
 }
 
 function dataReducer(state=initialState, action) {

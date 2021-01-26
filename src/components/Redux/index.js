@@ -16,15 +16,19 @@ function Nasa(props) {
   useEffect(() => {
     setLoading(true)
     props.fetchEvent()
-  })
+  },[])
 
-  if(loading && props.events === null){
+  if(loading && props.events === {}){
     return(
       <h1 className="loader">Loading...</h1>
     )
   }
+  const events = [props.events]
+  events.map(ev => {
+    const marker = ev.events
+    console.log(Array.isArray(marker))
+  })
   
-  console.log(props.events)
   return(
     <h1>This is the main app component</h1>
   )
